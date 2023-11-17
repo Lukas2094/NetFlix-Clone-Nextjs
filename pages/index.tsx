@@ -47,7 +47,7 @@ export default function Home({choseInfo , tmdb}: TMDB) {
 
           <S.Lists>
             {tmdb.map((item : any , key: any) => (
-                <MovieRow key={key} title={item.tile} items={item.items} />
+                <MovieRow key={key} title={item.title} items={item.items} />
             ))}
           </S.Lists>
        </S.Container>
