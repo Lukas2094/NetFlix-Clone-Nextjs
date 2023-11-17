@@ -69,7 +69,7 @@ export default function Home({choseInfo , tmdb}: TMDB) {
 }
 
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 
   const tmdb = await api.getHomeList();
   const originals = tmdb.filter( i => i.slug === 'Originals');
