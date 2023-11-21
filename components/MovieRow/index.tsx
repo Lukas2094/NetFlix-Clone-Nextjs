@@ -2,6 +2,7 @@ import React , {useState} from "react";
 import * as S from './style';
 import { IoIosArrowForward , IoIosArrowBack  } from "react-icons/io";
 import { Image } from "@chakra-ui/react";
+import Link from "next/link";
 
 export default function MovieRow({title , items} : any) {
     const [scrollX , setScrollX] = useState(-400);
@@ -38,9 +39,12 @@ export default function MovieRow({title , items} : any) {
              <S.MovieRowListArea>
                 <S.MovieRowList style={{marginLeft: scrollX, width: items.results.length * 150}}>
                     {items.results.length > 0 && items.results.map((item: any , key : any) => (
-                        <S.MovieRowItem key={key} >
-                             <Image src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
-                        </S.MovieRowItem>
+                        <Link href={item.backdrop_path == undefined ? 'Sem Titulo' : `movies/${item.backdrop_path}`}>
+                            <S.MovieRowItem key={key} >
+                                <Image src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.original_title} />
+                            </S.MovieRowItem>
+                        </Link>
+                        
                     ))}
                 </S.MovieRowList>
              </S.MovieRowListArea>

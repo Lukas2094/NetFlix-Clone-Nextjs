@@ -6,6 +6,7 @@ export const MovieRowContainer = styled.div`
     
     h2 {
         margin: 0px 0px 0px 30px;
+        font-size: 25px;
     }
 `;
 
